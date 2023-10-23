@@ -19,39 +19,61 @@ namespace ConsoleApp18
             graphics = Graphics.FromHwnd(Process.GetCurrentProcess().
                 MainWindowHandle);
 
-            Pen pen = new Pen(Color.Pink, 2);
-            graphics.DrawEllipse(pen, 400, 400, 400, 400);
+            Pen pen = new Pen(Color.LightSalmon, 2);
+            graphics.DrawEllipse(pen, 401, 401, 400, 400); // контур морды
 
-            graphics.DrawLine(pen, 300, 350, 460, 450); // левое ухо
-            graphics.DrawLine(pen, 300, 350, 400, 580);
+            SolidBrush soliidBrush = new SolidBrush(
+           Color.LightPink);
+            graphics.FillEllipse(soliidBrush, 400, 400, 400, 400); // закраска морды
 
-            graphics.DrawLine(pen, 900, 350, 750, 450); // правое ухо
-            graphics.DrawLine(pen, 900, 350, 805, 600);
+            graphics.FillClosedCurve(soliidBrush, new Point[] { // заливка ушей левое и правое
+                new Point(300, 400),
+                new Point(460, 450),
+                new Point(400, 580)
+            });
+            graphics.FillClosedCurve(soliidBrush, new Point[] {
+                new Point(900, 410),
+                new Point(750, 450),
+                new Point(805, 600)
+            });
+
+            SolidBrush soliiiidBrush = new SolidBrush(
+           Color.White);
+            graphics.FillClosedCurve(soliiiidBrush, new Point[] {   // заливка внутренностей ушей
+                new Point(340, 440),
+                new Point(430, 440),
+                new Point(400, 570)
+            });
+            graphics.FillClosedCurve(soliiiidBrush, new Point[] {
+                new Point(860, 440),
+                new Point(760, 470),
+                new Point(805, 570)
+            });
 
             Pen peN = new Pen(Color.White, 2);
-            graphics.DrawLine(peN, 200, 500, 460, 450);
-            graphics.DrawLine(peN, 200, 350, 460, 450);
-            graphics.DrawLine(peN, 200, 350, 460, 450);
-            graphics.DrawLine(peN, 200, 350, 460, 450);
+
+            graphics.DrawLine(peN, 300, 550, 470, 600); // усы
+
+            graphics.DrawLine(peN, 300, 700, 470, 650);
+
+            graphics.DrawLine(peN, 900, 700, 750, 650);
+
+            graphics.DrawLine(peN, 900, 550, 770, 600);
 
 
             SolidBrush solidBrush = new SolidBrush(
                 Color.Black);
-            graphics.FillEllipse(solidBrush, 700, 550, 60, 60); //100 - X и Y, 30 - длина
-            graphics.FillEllipse(solidBrush, 500, 550, 60, 60); //100 - X и Y, 30 - длина
+            graphics.FillEllipse(solidBrush, 700, 550, 60, 60); //адын глас
+            graphics.FillEllipse(solidBrush, 500, 550, 60, 60); 
 
             SolidBrush soolidBrush = new SolidBrush(
                 Color.White);
-            graphics.FillEllipse(soolidBrush, 730, 560, 15, 15); //100 - X и Y, 30 - длина
-            graphics.FillEllipse(soolidBrush, 530, 560, 15, 15); //100 - X и Y, 30 - длина
+            graphics.FillEllipse(soolidBrush, 730, 560, 15, 15); //втарой глас
+            graphics.FillEllipse(soolidBrush, 530, 560, 15, 15);
 
-            Pen pEn = new Pen(Color.Pink, 2);
-            graphics.DrawCurve(pEn, new Point[] {
-                new Point(700, 800),
-                new Point(600, 600),
-                new Point(600, 400),
-                new Point(600, 400)
-            });
+            SolidBrush soliiidBrush = new SolidBrush(
+           Color.LightSalmon);
+            graphics.FillEllipse(soliiidBrush, 615, 635, 50, 50); // рот
 
             Console.ReadLine();
 
